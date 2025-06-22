@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Sales Analytics Dashboard & ETL PipelineTable of ContentsProject OverviewFeaturesArchitectureTechnologies UsedSetup and RunningSQL ScriptsSample OutputsFuture EnhancementsLicenseProject OverviewThis project provides a complete solution for sales data analytics, encompassing an Extract, Transform, Load (ETL) pipeline and a dynamic web-based dashboard. The ETL process, built with PySpark, ingests raw sales data, cleans it, performs key aggregations, and stores the results in an SQLite database and Parquet files. A Flask API then serves this processed data to a responsive front-end dashboard, allowing users to visualize sales trends, profitability, customer insights, and discount performance.FeaturesData Ingestion: Automatically downloads raw sales data from Kaggle.Data Cleaning & Validation: Handles missing values, data type casting, and removes duplicate records.Key Performance Indicators (KPIs): Calculates and displays total sales, total profit, average discount, and total orders.Monthly Sales Trend Analysis: Visualizes sales performance over time, with filtering capabilities by country.Top Customer Identification: Lists and charts the top 10 most profitable customers.Product Line Profitability: Displays total profit across different product categories.Discount Analysis: Shows average discount rates per product line.High-Value Order Tracking: Lists individual orders exceeding a defined sales threshold.Flexible Data Storage: Stores processed data in a local SQLite database (for API consumption) and partitioned Parquet files (for scalable storage and further analysis).Responsive Web Dashboard: A clean, intuitive, and responsive UI built with HTML, Tailwind CSS, and Chart.js.ArchitectureThe project follows a typical data analytics architecture, separating the data processing (ETL) from the data presentation (API & Dashboard).+----------------+      +----------------+      +------------------+      +-----------------+
 | Raw Sales Data |----->| Data Pipeline  |----->| Processed Data   |----->| Flask API       |
 | (Kaggle CSV)   |      | (PySpark ETL)  |      | (SQLite, Parquet)|      | (Data Endpoints)|
@@ -18,7 +17,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 The requirements.txt file should contain:pyspark
 pandas
 Flask
-Flask-Cors
+Flask-CORS
 kagglehub
 4. Run the Data PipelineThis step will download the raw sales data, process it, and create the sales_analytics.db SQLite file and Parquet outputs.spark-submit src/etl/data_pipeline.py
 Expected Output:You will see logging messages indicating the progress of data ingestion, cleaning, aggregation, and storage to SQLite and Parquet. Upon successful completion, a sales_analytics.db file will be created in the root directory, and an output/parquet directory will contain Parquet files.5. Run the Flask APIThis step will start the backend server that serves data to the dashboard.python src/api/app.py
@@ -49,6 +48,3 @@ Example API Response (GET /api/monthly_sales?country=USA)[
   ...
 ]
 Future EnhancementsAuthentication: Implement user authentication for the API and dashboard.Dynamic Thresholds: Allow users to define the sales threshold for "High-Value Orders" via the dashboard.More KPIs: Add more insightful KPIs such as average order value, sales growth rate, etc.Interactive Maps: Integrate a map visualization to show sales distribution by country/region.Time Period Filters: Add custom date range filters for charts.Production Deployment: Dockerize the application for easier deployment to cloud platforms.Data Source Extensibility: Modify the pipeline to ingest data from other sources (e.g., cloud storage, external APIs).Error Reporting: Implement more robust error logging and monitoring.LicenseThis project is open-source and available under the MIT License.
-=======
-# Sales-Intelligence-Dashboard
->>>>>>> 195f5a98b35a4673322b605d2829cf6c71ec7a13
